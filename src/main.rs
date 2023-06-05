@@ -4,6 +4,8 @@ use std::cmp::Ordering;
 fn main() {
     println!("Hello, world!");
     println!("Welcome to the game");
+    let mut random_number = rand::thread_rng().gen_range(1,30);
+   loop{
     println!("Enter a number:");
 
     let mut guess = String::new();
@@ -12,13 +14,18 @@ fn main() {
 
     println!("You guessed: {}", guess);
 
-    let mut random_number = rand::thread_rng().gen_range(1,30);
+   
   
 
     match guess.cmp(&random_number) {
         Ordering::Less => println!("guess bit higher"),
-        Ordering::Equal=> println!("right guess"),
+        Ordering::Equal=> {
+
+            println!("right guess")
+            break;
+        },
         Ordering::Greater=> println!("guess bit lower"),
 
     }
+   }
 }
