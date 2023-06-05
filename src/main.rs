@@ -1,6 +1,6 @@
 use std::io;
 use rand::Rng;
-
+use std::cmp::Ordering;
 fn main() {
     println!("Hello, world!");
     println!("Welcome to the game");
@@ -13,5 +13,12 @@ fn main() {
     println!("You guessed: {}", guess);
 
     let mut random_number = rand::thread_rng().gen_range(1,30);
-    println!("The random number is: {}", random_number);
+  
+
+    match guess.cmp(&random_number) {
+        Ordering::Less => println!("guess bit higher"),
+        Ordering::Equal=> println!("right guess"),
+        Ordering::Greater=> println!("guess bit lower"),
+
+    }
 }
