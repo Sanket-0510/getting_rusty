@@ -1,11 +1,17 @@
 use std::io;
-use rand::Rng
+use rand::Rng;
+
 fn main() {
     println!("Hello, world!");
-    println!("welcome to the game");
-    println!("enter the number");
-    let mut guess  = String::new();
-    io::stdin().read_line(&mut guess).expect("failed to take the input");
-    println!("you guess {}", guess);
+    println!("Welcome to the game");
+    println!("Enter a number:");
 
+    let mut guess = String::new();
+    io::stdin().read_line(&mut guess).expect("Failed to read input");
+    let guess: u32 = guess.trim().parse().expect("Invalid input");
+
+    println!("You guessed: {}", guess);
+
+    let mut random_number = rand::thread_rng().gen_range(1,30);
+    println!("The random number is: {}", random_number);
 }
