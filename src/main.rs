@@ -12,7 +12,11 @@ impl  Rectangle {
          self.width * self.hieght > rect.width*rect.hieght
     }
 }
-
+impl Rectangle{
+    fn square(side:i32)->i32{
+        side * side
+    }
+}
 fn main() {
     // println!("Hello, world!");
     // println!("Welcome to the game");
@@ -57,6 +61,8 @@ let rect1 = Rectangle{
     else {
         println!("circle does not fit");
     }
+    let square_area = Rectangle::square(20);
+    println!("{}", square_area);
 
 }
 
