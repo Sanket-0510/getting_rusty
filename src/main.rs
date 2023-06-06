@@ -7,6 +7,11 @@ struct Rectangle {
     width: u32,
     hieght : u32
 }
+impl  Rectangle {
+    fn check(&self, rect: &Rectangle) ->  bool {
+         self.width * self.hieght > rect.width*rect.hieght
+    }
+}
 
 fn main() {
     // println!("Hello, world!");
@@ -40,9 +45,18 @@ let rect = Rectangle{
     width: 40,
     hieght:20
 };
-  let area = area(&rect);
-  println!("area is {}", area);
 
+let rect1 = Rectangle{
+    width:16,
+    hieght:70
+};
+   let result = rect.check(&rect1);
+    if result {
+        println!("circle fits");
+    }
+    else {
+        println!("circle does not fit");
+    }
 
 }
 
