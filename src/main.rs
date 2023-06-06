@@ -17,6 +17,11 @@ impl Rectangle{
         side * side
     }
 }
+#[derive(Debug)]
+enum Ip{
+    v4(String),
+    v6(String)
+}
 fn main() {
     // println!("Hello, world!");
     // println!("Welcome to the game");
@@ -63,6 +68,12 @@ let rect1 = Rectangle{
     }
     let square_area = Rectangle::square(20);
     println!("{}", square_area);
+    let ip = Ip::v4(String::from("127.0.0.1"));
+    println!("{:?}", ip);
+
+ //enum and match
+ match_state(Person::Native(State::Maharastra));
+
 
 }
 
@@ -70,4 +81,27 @@ let rect1 = Rectangle{
 
 fn area(reactangle: &Rectangle)-> u32{
      reactangle.width*reactangle.hieght
+}
+
+//enum and match
+#[derive(Debug)]
+enum State{
+    Gujrat,
+    Maharastra,
+    Odisa,
+    TamilNadu
+}
+#[derive(Debug)]
+enum Person{
+    
+    Native(State)
+}
+
+fn match_state(person: Person)->u8{
+    match person{
+      Person::Native(state3)=>{
+           println!("{:?}",state3);
+           25
+      }
+    }
 }
