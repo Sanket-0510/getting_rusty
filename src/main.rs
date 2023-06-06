@@ -1,32 +1,53 @@
-use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
-use colored::*;
+// use std::io;
+// use rand::Rng;
+// use std::cmp::Ordering;
+// use colored::*;
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    hieght : u32
+}
+
 fn main() {
-    println!("Hello, world!");
-    println!("Welcome to the game");
-    let mut random_number = rand::thread_rng().gen_range(1,30);
-   loop{
-    println!("Enter a number:");
+    // println!("Hello, world!");
+    // println!("Welcome to the game");
+    // let mut random_number = rand::thread_rng().gen_range(1,30);
+//    loop{
+//     println!("Enter a number:");
 
-    let mut guess = String::new();
-    io::stdin().read_line(&mut guess).expect("Failed to read input");
-    let guess: u32 = guess.trim().parse().expect("Invalid input");
+//     let mut guess = String::new();
+//     io::stdin().read_line(&mut guess).expect("Failed to read input");
+//     let guess: u32 = guess.trim().parse().expect("Invalid input");
 
-    println!("You guessed: {}", guess);
+//     println!("You guessed: {}", guess);
 
    
   
 
-    match guess.cmp(&random_number) {
-        Ordering::Less => println!("{}", "too small".red()),
-        Ordering::Equal=> {
+//     match guess.cmp(&random_number) {
+//         Ordering::Less => println!("{}", "too small".red()),
+//         Ordering::Equal=> {
 
-            println!("{}", "You Win!".green());
-            break;
-        },
-        Ordering::Greater=> println!("{}", "too high!".red()),
+//             println!("{}", "You Win!".green());
+//             break;
+//         },
+//         Ordering::Greater=> println!("{}", "too high!".red()),
 
-    }
-   }
+//     }
+//    }
+ 
+let rect = Rectangle{
+    width: 40,
+    hieght:20
+};
+  let area = area(&rect);
+  println!("area is {}", area);
+
+
+}
+
+
+
+fn area(reactangle: &Rectangle)-> u32{
+     reactangle.width*reactangle.hieght
 }
